@@ -327,44 +327,17 @@ return (
   <div className="root">
     <div className="course-section">
       <div className="course-information">
-        <div className="column">
           <div className="flex">
             <div className="course-name">
-              <h1>Course name{" "}</h1>
+              <h1 className="C-Name">Course name{" "}</h1>
               <input
+              className="course-input"
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="choose course"
               />
-            </div>
-            <div className="dropdown">
-              <button className="dropbtn">Select a teacher</button>
-              <div className="dropdown-content">
-                <a href="#">Teacher 1</a>
-                <a href="#">Teacher 2</a>
-                <a href="#">Teacher 3</a>
-                <a href="#">Teacher 4</a>
-              </div>
-            </div>
-          </div>
-        {/* <div className="column">
-          <img src={imageUrl} alt=""/>
-          <button className="choose-file"
-            onClick={() => document.getElementById("fileInput").click()}
-          > */}
-          <div className="column">
-  {imageUrl ? (
-    <img src={imageUrl} alt="" />
-  ) : (
-    <img src="icons8-blue-96.png" alt="icon" />
-  )}           <button className="choose-file"
-  onClick={() => document.getElementById("fileInput").click()}
->
-            Choose file
-          </button>
-          </div>
-          <div className="startEnd">
+                          <div className="startEnd">
             <div className="start-date">
               <h1>Start{" "}</h1>
               <input
@@ -384,7 +357,41 @@ return (
               />
             </div>
           </div>
-        </div>
+            </div>
+
+<div className="column">
+  <h1 className="teacher-name">Teacher Name</h1>
+  <div className="dropdown">
+              <button className="dropbtn">Select a teacher</button>
+              <div className="dropdown-content">
+                <a href="#">Teacher 1</a>
+                <a href="#">Teacher 2</a>
+                <a href="#">Teacher 3</a>
+                <a href="#">Teacher 4</a>
+              </div>
+            </div>
+          {imageUrl ? (
+    <img src={imageUrl} alt="" />
+  ) : (
+    <img src="icons8-rounded-square-96.png" alt="icon" className="rounded-square" />
+  )}<button className="choose-file"
+  onClick={() => document.getElementById("fileInput").click()}
+>
+            Choose file
+          </button>
+
+          </div>
+          </div>
+        {/* <div className="column">
+          <img src={imageUrl} alt=""/>
+          <button className="choose-file"
+            onClick={() => document.getElementById("fileInput").click()}
+          > */}
+
+
+
+
+        
       </div>
       <h1 className="desc">Description</h1>
       <div className="description">

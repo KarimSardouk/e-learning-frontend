@@ -5,7 +5,7 @@
     margin-top:100px;
   }
 
-  .grid-container {
+  /* .grid-container {
     text-align: center;
     border-collapse: collapse;
   }
@@ -13,18 +13,18 @@
   .grid-container th,
   .grid-container td {
     border: 1px solid #000; /* Set border color to black or adjust as needed */
-    padding: 8px; /* Add some padding for better visual appearance */
-  }
-  .grid-item {
+    /* padding: 10px; Add some padding for better visual appearance */
+  /* } */ 
+  /* .grid-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 2px solid #053b50;
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    /* border: 2px solid #053b50;
     padding: 10px;
     font-size: 20px;
     text-align: center;
-  }
+  }  */
   .grid-container button {
     display: inline-block;
     margin: 10px;
@@ -35,22 +35,22 @@
     height: 50px;
     font-size: 20px;
   }
-  .grid-item-t {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 2px solid #053b50;
-    padding: 10px;
-    font-size: 30px;
-    text-align: center;
-    border-bottom-left-radius: 30px;
-  }
-  .grid-item-s {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 2px solid #053b50;
-    padding: 10px;
-    font-size: 30px;
-    text-align: center;
-    border-bottom-right-radius: 30px;
-  }
+  /* .grid-item-t { */
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    /* border: 2px solid #053b50; */
+    /* padding: 10px; */
+    /* font-size: 30px; */
+    /* text-align: center; */
+    /* border-bottom-left-radius: 30px; */
+  /* } */
+  /* .grid-item-s { */
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    /* border: 2px solid #053b50; */
+    /* padding: 10px; */
+    /* font-size: 30px; */
+    /* text-align: center; */
+    /* border-bottom-right-radius: 30px; */
+  /* } */
   .show-modal {
     font-size: 2rem;
     font-weight: 600;
@@ -114,8 +114,20 @@
   }
 
 
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: repeat(4, );
+grid-template-columns: repeat(3, 1fr);
 
-
+  }
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 40px;
+  font-size: 30px;
+  text-align: center;
+}
   body {
     font-family: sans-serif;
     color: #333;
@@ -287,5 +299,8 @@ font-size: 20px;
     width: 70%;
   }
 }
+
+
+
 
 

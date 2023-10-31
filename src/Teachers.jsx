@@ -36,108 +36,105 @@ const Teachers = () => {
   const closePopup = () => {
     setIsPopupVisible(false);
   };
-  return (
-    <div>
-      <div className="body">
-        <h1>Teachers</h1>
-        <table className="grid-container">
-  <thead>
-    <tr className="title">
-      <th>
-        <div className="grid-item-t">Teacher Name</div>
-      </th>
-      <th>
-        <div className="grid-item-s">Number of Courses</div>
-      </th>
-      <th>
-        <div className="grid-item-s">Actions</div>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    {data && data.map((teacher, index) => (
-      <tr key={index}>
-        <td>{teacher.name}</td>
-        <td>10</td>
-        <td>
-          <div className="box">
-            <a className="button" href="#popup1" onClick={openPopup}>
-              Delete Teacher
-            </a>
-          </div>
-        </td>
-      </tr>
-    ))}
-  </tbody>
-</table>
+  // return (
+  //   <div>
+  //     <div className="body">
+  //       <h1>Teachers</h1>
+  //       <table className="grid-container">
+  //         <thead>
+  //           <tr className="title">
+  //             <th>
+  //               <div className="grid-item-t">Teacher Name</div>
+  //             </th>
+  //             <th>
+  //               <div className="grid-item-s">Number of Courses</div>
+  //             </th>
+  //             <th>
+  //               <div className="grid-item-s">Actions</div>
+  //             </th>
+  //           </tr>
+  //         </thead>
+  //         <tbody>
+  //           {data && data.map((teacher, index) => (
+  //             <tr key={index}>
+  //               <td>{teacher.name}</td>
+  //               <td>10</td>
+  //               <td>
+  //                 <div className="box">
+  //                   <a className="button" href="#popup1" onClick={openPopup}>
+  //                     Delete Teacher
+  //                   </a>
+  //                 </div>
+  //               </td>
+  //             </tr>
+  //           ))}
+  //         </tbody>
+  //       </table>
+  //     </div>
+  
+  //     <div id="popup1" className={`overlay ${isPopupVisible ? 'active' : ''}`}>
+  //       <div className="popup">
+  //         <h2>Delete confirmation</h2>
+  //         <a className="close" href="#" onClick={closePopup}>
+  //           &times;
+  //         </a>
+  //         <div className="content">
+  //           <p>Thank you for popping me out of the button, please choose wisely</p>
+  //           <button>Confirm</button>
+  //           <button>Cancel</button>
+  //         </div>
+  //       </div>
+  //     </div>
+  
+  //     <div className="item1">Add teacher</div>
+  //   </div>
+  // );}
+  // export default Teachers;
+return (
+  <div>
+    <div className="body">
+      <h1>Teachers</h1>
+      <div className="grid-container">
+        <div className="grid-item">Teacher Name</div>
+        <div className="grid-item">Number of courses</div>
+        <div className="grid-item">Actions</div>
+      </div>
 
-        <div id="popup1" className={`overlay ${isPopupVisible ? 'active' : ''}`}>
-          <div className="popup">
-            <h2>Delete confirmation</h2>
-            <a className="close" href="#" onClick={closePopup}>
-              &times;
-            </a>
-            <div className="content">
-              <p>Thank you for popping me out of the button, please choose wisely</p>
-              <button>Confirm</button>
-              <button>Cancel</button>
+      {data && data.map((teacher, index) => (
+        <div className="grid-container" key={index}>
+          <div className="grid-item">{teacher.name}</div>
+          <div className="grid-item">10</div>
+          <div className="grid-item">
+            <div className="box">
+              <a className="button" href="#popup1" onClick={openPopup}>
+                Delete Teacher
+              </a>
             </div>
           </div>
         </div>
+      ))}
 
-        <div className="item1">Add teacher</div>
+      <div id="popup1" className={`overlay ${isPopupVisible ? 'active' : ''}`}>
+        <div className="popup">
+          <h2>Delete confirmation</h2>
+          <a className="close" href="#" onClick={closePopup}>
+            &times;
+          </a>
+          <div className="content">
+            <p>Thank you for popping me out of the button, please choose wisely</p>
+            <button>Confirm</button>
+            <button>Cancel</button>
+          </div>
+        </div>
       </div>
+
+      <div className="item1">Add teacher</div>
     </div>
-  );
+  </div>
+);
 };
 
 export default Teachers;
-
-// return (
-//   <div>
-//     <div className="body">
-//       <h1>Teachers</h1>
-//       <div className="grid-container">
-//         <div className="grid-item">Teacher Name</div>
-//         <div className="grid-item">Number of courses</div>
-//         <div className="grid-item">Actions</div>
-//       </div>
-
-//       {data && data.map((teacher, index) => (
-//         <div className="grid-container" key={index}>
-//           <div className="grid-item">{teacher.name}</div>
-//           <div className="grid-item">10</div>
-//           <div className="grid-item">
-//             <div className="box">
-//               <a className="button" href="#popup1" onClick={openPopup}>
-//                 Delete Teacher
-//               </a>
-//             </div>
-//           </div>
-//         </div>
-//       ))}
-
-//       <div id="popup1" className={`overlay ${isPopupVisible ? 'active' : ''}`}>
-//         <div className="popup">
-//           <h2>Delete confirmation</h2>
-//           <a className="close" href="#" onClick={closePopup}>
-//             &times;
-//           </a>
-//           <div className="content">
-//             <p>Thank you for popping me out of the button, please choose wisely</p>
-//             <button>Confirm</button>
-//             <button>Cancel</button>
-//           </div>
-//         </div>
-//       </div>
-
-//       <div className="item1">Add teacher</div>
-//     </div>
-//   </div>
-// );
-// };
-
-// export default Teachers;
 
 // import React, { useState, useEffect } from "react";
 // import "./Teachers.css";
