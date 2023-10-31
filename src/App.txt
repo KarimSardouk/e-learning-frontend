@@ -1,0 +1,189 @@
+import "./App.css";
+import axios from "axios";
+import { useState } from "react";
+function App() {
+  const [deleted, setDeleted] = useState(false);
+  const [added, setAdded] = useState(false);
+
+  const deleteStudent = async (id) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:8001/students/deleteStudent/${id}`
+      );
+      console.log(response.data);
+      setDeleted(true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const getStudent = () => {
+    axios
+      .get("http://localhost:8001/students/getAllStudents")
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const addStudent = () => {
+    const newStudent = {
+      name:"Hadi",
+      email:"hadi@gmail.com",
+      password:"0000",
+      dob:"4-8-2002",
+      role:"student",
+    };
+
+    axios
+      .post("http://localhost:8001/students/addStudent", newStudent)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const addCourse = () => {
+    const newCourse = {
+      name: "Math Course",           // Course name
+      img: "math_course.jpg",      // Image URL (if applicable)
+      Description: "Mathematics",    // Course description
+      Date_start: "2023-09-01",      // Start date of the course
+      Date_fin: "2023-12-31",        // End date of the course
+    };
+  
+    axios
+      .post("http://localhost:8001/api/courses/addCourse", newCourse)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  
+  const getCourse = () => {
+    axios
+      .get("http://localhost:8001/api/courses/getAllCourses")
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  // const addCourse = () => {
+  //   const newCourse = {
+  //     name: "Random Course",
+  //     image: "random_image.jpg",
+  //     Description: "Random Description",
+  //     Date_start: "2023-08-15",
+  //     Date_fin: "2023-09-15"
+  //   };
+    
+
+  //   axios
+  //     .post("http://localhost:8001/api/courses/addCourse", newCourse)
+  //     .then((res) => {
+  //       console.log(res);
+  //       setAdded(true);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+  const deleteCourse = async (id) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:8001/api/courses/deleteCourse/${id}`
+      );
+      console.log(response.data);
+      setDeleted(true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  // const getAllTeachers = () => {
+  //   axios
+  //     .get("http://localhost:8001/api/teachers/getAllTeachers")
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+  const getAllTeachers = () => {
+    axios
+      .get("http://localhost:8001/api/teachers/getAllTeachers")
+      .then((res) => {
+        console.log(res.data); // Assuming you want to see the data
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const addTeacher = () => {
+    const newTeacher = {
+      name: "Carine",
+      email: "carine@GMAIL.COM",
+      subject: "AI",
+    };
+  
+    axios
+      .post("http://localhost:8001/api/teachers/addTeacher", newTeacher)
+      .then((res) => {
+        console.log(res);
+        setAdded(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  
+  const deleteTeacher = async (id) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:8001/api/teachers/deleteTeacher/${id}`
+      );
+      console.log(response.data);
+      setDeleted(true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+  
+  return (
+    <div className="App">
+      <div className='buttons123'>
+      <button onClick={getStudent}>Get student</button>
+      {added && <p>Student added successfully!</p>}
+      <button onClick={addStudent}>Add student</button>
+      {deleted && <p>Student deleted successfully!</p>}
+      <button onClick={() => deleteStudent("7")}>
+        Delete student
+      </button>
+      </div>
+      <div className='buttons456'>
+      <button onClick={getCourse}>Get course</button>
+      <button onClick={addCourse}>Add course</button>
+      {deleted && <p>Course deleted successfully!</p>}
+      <button onClick={() => deleteCourse("6")}>
+        Delete course
+      </button>
+      </div>
+      <div className='buttons789'>
+      <button onClick={getAllTeachers}>Get All Teachers</button>
+      <button onClick={addTeacher}>Add teacher</button>
+      {deleted && <p>Teacher deleted successfully!</p>}
+      <button onClick={() => deleteTeacher("41")}>
+        Delete teacher
+      </button>
+      </div>
+    </div>
+  );
+}
+
+export default App;
