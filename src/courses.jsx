@@ -131,7 +131,6 @@
 
 // export default Courses;
 
-
 //   return (
 //     <div className="root">
 //       <div className="course-section">
@@ -217,7 +216,6 @@
 // export default Courses;
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 function Courses() {
   const [name, setName] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -225,36 +223,17 @@ function Courses() {
   const [description, setDescription] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageUrl, setImageUrl] = useState(""); // Added state for image URL
-  // const handleFileChange = (e) => {
-  //   const file = e.target.files[0];
-  //   setSelectedFile(file);
-  // };
-  // const handleImageUpload = () => {
-  //   if (selectedFile) {
-  //     const reader = new FileReader();
-  //     reader.onload = () => {
-  //       setImageUrl(reader.result);
-  //     };
-  //     reader.readAsDataURL(selectedFile);
-  //   } else {
-  //     // If no file is selected, set the default image URL
-  //     setImageUrl("icons8-blue-96.png");
-  //   }
-  // };
-  
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setSelectedFile(file);
   };
-
   const handleImageUpload = async () => {
     try {
       if (selectedFile) {
         const formData = new FormData();
         formData.append("image", selectedFile);
-
         const response = await axios.post(
-          "https://api.imgbb.com/1/upload?key={apiKey}", // Replace with your ImgBB API key
+          "https://api.imgbb.com/1/upload?key=f41be212466b56dabb0962a8d305b262", // Replace with your ImgBB API key
           formData
         );
         const imageUrl = response.data.data.url;
@@ -267,25 +246,9 @@ function Courses() {
       console.error("Error uploading image:", error);
     }
   };
-
-  // const addImage = async () => {
-  //   try {
-  //     const formData = new FormData();
-  //     formData.append('image', selectedFile);
-
-  //     const imageResponse = await axios.post('http://localhost:8001/api/images/add', imageData, { headers: { 'Content-Type': 'application/json' }, })
-  //     if (!imageResponse)
-  //       throw new Error('An error occurred while adding the skill');
-  //     console.log(skillResponse);
-  //     setShowNewSkillInput(false);
-  //     setDoFetch(!fetchData);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
   const addCourse = () => {
-        // Get the uploaded image URL or default image URL
-        const img = imageUrl || "icons8-blue-96.png";
+    // Get the uploaded image URL or default image URL
+    const img = imageUrl || "icons8-blue-96.png";
     const courseData = {
       name: name,
       img: img, // Add code to handle image input
@@ -323,102 +286,98 @@ function Courses() {
       document.removeEventListener("click", handleClick);
     };
   }, []);
-return (
-  <div className="root">
-    <div className="course-section">
-      <div className="course-information">
+  return (
+    <div className="root">
+      <div className="course-section">
+        <div className="course-information">
           <div className="flex">
             <div className="course-name">
-              <h1 className="C-Name">Course name{" "}</h1>
+              <h1 className="C-Name">Course name </h1>
               <input
-              className="course-input"
+                className="course-input"
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="choose course"
               />
-                          <div className="startEnd">
-            <div className="start-date">
-              <h1>Start{" "}</h1>
-              <input
-                className="start"
-                type="date"
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}
-              />
-            </div>
-            <div className="end-date">
-              <h1>End{" "}</h1>
-              <input
-                className="end"
-                type="date"
-                value={endDate}
-                onChange={(e) => setEndDate(e.target.value)}
-              />
-            </div>
-          </div>
-            </div>
-
-<div className="column">
-  <h1 className="teacher-name">Teacher Name</h1>
-  <div className="dropdown">
-              <button className="dropbtn">Select a teacher</button>
-              <div className="dropdown-content">
-                <a href="#">Teacher 1</a>
-                <a href="#">Teacher 2</a>
-                <a href="#">Teacher 3</a>
-                <a href="#">Teacher 4</a>
+              <div className="startEnd">
+                <div className="start-date">
+                  <h1>Start </h1>
+                  <input
+                    className="start"
+                    type="date"
+                    value={startDate}
+                    onChange={(e) => setStartDate(e.target.value)}
+                  />
+                </div>
+                <div className="end-date">
+                  <h1>End </h1>
+                  <input
+                    className="end"
+                    type="date"
+                    value={endDate}
+                    onChange={(e) => setEndDate(e.target.value)}
+                  />
+                </div>
               </div>
             </div>
-          {imageUrl ? (
-    <img src={imageUrl} alt="" />
-  ) : (
-    <img src="icons8-rounded-square-96.png" alt="icon" className="rounded-square" />
-  )}<button className="choose-file"
-  onClick={() => document.getElementById("fileInput").click()}
->
-            Choose file
+            <div className="column">
+              <h1 className="teacher-name">Teacher Name</h1>
+              <div className="dropdown">
+                <button className="dropbtn">Select a teacher</button>
+                <div className="dropdown-content">
+                  <a href="#">Teacher 1</a>
+                  <a href="#">Teacher 2</a>
+                  <a href="#">Teacher 3</a>
+                  <a href="#">Teacher 4</a>
+                </div>
+              </div>
+              {imageUrl ? (
+                <img src={imageUrl} alt="" />
+              ) : (
+                <img
+                  src="icons8-rounded-square-96.png"
+                  alt="icon"
+                  className="rounded-square"
+                />
+              )}
+              <button
+                className="choose-file"
+                onClick={() => document.getElementById("fileInput").click()}
+              >
+                Choose file
+              </button>
+            </div>
+          </div>
+        </div>
+        <h1 className="desc">Description</h1>
+        <div className="description">
+          <textarea
+            className="textareak"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          ></textarea>
+        </div>
+        <div className="image-file-drop">
+          <button
+            className="add"
+            onClick={() => {
+              addCourse();
+              handleImageUpload();
+            }}
+          >
+            Add course
           </button>
-
-          </div>
-          </div>
-        {/* <div className="column">
-          <img src={imageUrl} alt=""/>
-          <button className="choose-file"
-            onClick={() => document.getElementById("fileInput").click()}
-          > */}
-
-
-
-
-        
-      </div>
-      <h1 className="desc">Description</h1>
-      <div className="description">
-        <textarea
-          className="textareak"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        ></textarea>
-      </div>
-      <div className="image-file-drop">
-
-
-      <button className="add" onClick={() => {addCourse(); handleImageUpload();}}>
-  Add course
-</button>
-
-      <input
+          <input
             id="fileInput"
             type="file"
             accept=".png, .jpg, .jpeg"
             style={{ display: "none" }}
             onChange={handleFileChange}
           />
+        </div>
+      </div>
     </div>
-    </div>
-  </div>
-);
-};
-
+  );
+}
 export default Courses;

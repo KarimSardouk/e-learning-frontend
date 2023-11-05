@@ -300,13 +300,22 @@ transform: translate(30%,20%);
 
 /* Extra small devices (portrait phones) */
 @media (max-width: 575.98px) {
-  #root {
+  /* .root {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 110px;
     margin-left: 170px;
+  } */
+  .root {
+    display: flex;
+    flex-direction: column;
+    margin-top: 110px;
+    border: 1px solid black;
+    border-radius: 30px;
+    margin-right: 550px;
+    margin-left: 600px;
   }
 
   .header-d {
@@ -1245,4 +1254,10 @@ transform: translate(30%,20%);
   .show {
     display: block;
   }
+}
+
+.project-logo{
+  width:170px;
+  height:85px;
+  /* margin-left: 50px; */
 }
