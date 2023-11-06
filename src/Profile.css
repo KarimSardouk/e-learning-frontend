@@ -1,0 +1,47 @@
+.profile-section {
+  margin: 100px 200px;
+  display: flex;
+  background-color: white;
+  border: 0.5px solid rgb(228, 225, 225);
+  border-radius: 10px;
+  height: 220px;
+  margin-bottom: 20px;
+}
+.profile-image img {
+  width: 200px;
+  height: 220px;
+  border-radius: 10px;
+}
+.profile-section:hover {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.credentials {
+  display: flex;
+  gap: 30px;
+}
+.profile-information {
+  margin-left: 10px;
+}
+.buttons-edit {
+  margin-left: 200px;
+  display: flex;
+  justify-content: flex-start;
+  gap:20px;
+}
+.button1 button{
+    margin-bottom: -50px;
+    background-color: transparent;
+    border-radius: 5px;
+    width:100px;
+    height:30px;
+}
+.button2 button{
+    background-color: transparent;
+    border-radius: 5px;
+    width: 130px;
+    height: 30px;
+}
+.button1 button:hover,.button2 button:hover{
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
